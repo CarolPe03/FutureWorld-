@@ -1,13 +1,21 @@
-import { Description } from "app/components/home/Description"
-import { Hero } from "app/components/home/Hero"
-import { MainProducts } from "app/components/home/MainProducts"
+import { Inter } from 'next/fonts';
+import { Header } from 'app/components/shared/Header';
+import { Footer } from 'app/components/shared/Footer';
 
-export default function Home() {
+const inter = Inter({ subsets: ['latin'] });
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <main >
-      <Hero />
-      <Description />
-      <MainProducts />
-    </main>
+    <html lang="en">
+      <body className={inter.className}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }
